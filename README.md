@@ -1,4 +1,4 @@
-# JobVault (LinkedIn Edition)
+# JobVault
 
 JobVault is a Chrome extension that helps you keep a local archive of job applications.  
 It captures job descriptions and lets you attach the resume you submitted, storing everything neatly in folders on your computer.
