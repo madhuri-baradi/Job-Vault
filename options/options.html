@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JobVault — Settings</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 24px; color:#111; }
+      h1 { font-size: 22px; margin: 0 0 12px; }
+      .subtitle { color:#555; margin: 0 0 18px; }
+      .card { width: 420px; border: 1px solid #e1e1e1; border-radius: 12px; padding: 14px 14px 10px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+      .section-title { font-weight: 600; margin-top: 6px; }
+      .row { display:flex; gap:8px; }
+      .btn { border: 1px solid #ccc; background:#f7f7f7; padding:8px 10px; border-radius:8px; cursor:pointer; }
+      .btn.primary { background:#1769e0; border-color:#1769e0; color:#fff; }
+      .muted { color:#555; font-size: 12px; }
+      .divider { height:1px; background:#eee; margin:14px 0; }
+      label { display:flex; gap:8px; align-items:center; margin:8px 0; }
+      #msg { margin-top:10px; font-size:12px; color:#0a0; min-height:16px; }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to JobVault</h1>
+    <p class="subtitle">Choose a Base Folder and capture behavior. Quick actions live in the toolbar popup.</p>
+    <p class="subtitle">You can always capture the jobs you want from the toolbar popped up after clicking the extension</p>
+    <div class="card">
+      <div class="section-title">Base Folder</div>
+      <div class="row" style="margin-top:6px">
+        <button id="pickFolder" class="btn primary">Choose Base Folder</button>
+        <button id="clearFolder" class="btn" title="Forget the chosen folder">Clear</button>
+      </div>
+      <div id="where" class="muted" style="margin-top:6px">No base folder set.</div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Capture on LinkedIn</div>
+      <label><input type="checkbox" id="chkEA" /> Capture on LinkedIn Easy Apply</label>
+      <label><input type="checkbox" id="chkEXT" /> Capture on LinkedIn “Apply on company site”</label>
+      <div class="row" style="margin-top:8px">
+        <button id="saveToggles" class="btn">Save Capture Toggles</button>
+      </div>
+
+      <div id="msg"></div>
+    </div>
+
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

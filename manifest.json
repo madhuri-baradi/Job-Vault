@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "JobVault",
+  "version": "0.1.1",
+  "description": "Capture job descriptions and save with the resume you used locally and by date.",
+  "action": {
+    "default_title": "JobVault",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "128": "assets/icon_128.png"
+  },
+  "permissions": [
+    "storage",
+    "downloads",
+    "scripting",
+    "activeTab",
+    "webNavigation",
+    "offscreen"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*"
+      ],
+      "js": [
+        "content/linkedin_detector.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "*://*.linkedin.com/*"
+  ],
+  "options_page": "options/options.html",
+  "minimum_chrome_version": "120"
+}

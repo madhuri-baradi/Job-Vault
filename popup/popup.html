@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JobVault</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 12px; width: 340px; color:#111; }
+      h1 { font-size: 16px; margin: 0 0 8px; }
+      .card { border: 1px solid #e1e1e1; border-radius: 12px; padding: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+      .row { display:flex; gap:8px; }
+      .btn { border: 1px solid #ccc; background:#f7f7f7; padding:8px 10px; border-radius:8px; cursor:pointer; }
+      .btn.primary { background:#1769e0; border-color:#1769e0; color:#fff; }
+      .muted { color:#555; font-size: 12px; }
+      .divider { height:1px; background:#eee; margin:12px 0; }
+      .hide { display:none; }
+      label { display:flex; gap:8px; align-items:center; margin:6px 0; }
+      #msg, #msg2 { margin-top:8px; font-size:12px; color:#0a0; min-height:16px; }
+    </style>
+  </head>
+  <body>
+    <h1>JobVault</h1>
+
+    <!-- FIRST-RUN SETUP VIEW (no pickers — just open Options) -->
+    <div id="setup" class="card">
+      <div class="muted">
+        You need to choose a Base Folder before saving jobs. Open Setup in a full tab to finish.
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button id="openSettings" class="btn primary">Open Setup</button>
+      </div>
+    </div>
+
+    <!-- MAIN VIEW -->
+    <div id="main" class="card hide">
+      <div><strong>Quick actions</strong></div>
+      <div class="row" style="margin-top:8px">
+        <button id="saveCurrent" class="btn primary" title="Capture this page and save locally">Save Current Page</button>
+        <button id="uploadOnly" class="btn" title="Attach resume to the next save">Upload Resume</button>
+      </div>
+
+      <!-- Company (optional) -->
+      <div style="margin-top:10px">
+        <label for="company" class="muted"><strong>Company</strong> (optional)</label>
+        <input id="company"
+               type="text"
+               placeholder="Enter company name…"
+               style="width:100%;padding:8px;border:1px solid #ccc;border-radius:8px;margin-top:4px" />
+      </div>
+
+      <input id="file" type="file" accept=".pdf,.doc,.docx" class="hide" />
+      <div id="resumeStatus" class="muted" style="margin-top:6px"></div>
+
+      <div class="divider"></div>
+
+      <div><strong>Capture on LinkedIn</strong></div>
+      <label><input type="checkbox" id="chkEA2" /> Capture on LinkedIn Easy Apply</label>
+      <label><input type="checkbox" id="chkEXT2" /> Capture on LinkedIn “Apply on company site”</label>
+
+      <div class="row" style="margin-top:10px">
+        <button id="saveToggles" class="btn">Save Capture Toggles</button>
+        <button id="rechoose" class="btn">Change Base Folder</button>
+      </div>
+
+      <div id="where" class="muted" style="margin-top:8px"></div>
+      <div id="msg2"></div>
+    </div>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
